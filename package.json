@@ -1,0 +1,36 @@
+{
+  "name": "thymos",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build:contracts": "forge build",
+    "deploy:somnia": "forge build && tsx agents/src/deploy-somnia.ts",
+    "test": "forge test",
+    "demo": "tsx agents/src/demo.ts",
+    "demo:once": "DEMO_ONCE=1 tsx agents/src/demo.ts",
+    "dev": "vite --host 0.0.0.0",
+    "build": "vite build",
+    "typecheck": "tsc --noEmit",
+    "check": "forge test && tsc --noEmit && vite build"
+  },
+  "dependencies": {
+    "@somnia-chain/reactivity": "^0.1.5",
+    "@somnia-chain/reactivity-contracts": "^0.2.0",
+    "@somnia-chain/streams": "^0.12.2",
+    "@tailwindcss/vite": "^4.3.0",
+    "dotenv": "^17.4.2",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "react-router-dom": "^7.17.0",
+    "tailwindcss": "^4.3.0",
+    "viem": "^2.30.6"
+  },
+  "devDependencies": {
+    "@types/react": "^19.2.17",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^4.5.2",
+    "tsx": "^4.20.3",
+    "typescript": "^5.8.3",
+    "vite": "^6.3.5"
+  }
+}

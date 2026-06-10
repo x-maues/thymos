@@ -1,0 +1,50 @@
+{
+  "network": "Somnia Testnet",
+  "chainId": 50312,
+  "rpcUrl": "https://dream-rpc.somnia.network/",
+  "status": "fill after deployment",
+  "contracts": {
+    "MockUSDC": "",
+    "MockDAI": "",
+    "OpenMandate": "",
+    "RescueAdapter": "",
+    "ReactiveMandateHandler": "",
+    "SomniaEvidenceAgent": ""
+  },
+  "transactions": {
+    "MockUSDC": "",
+    "MockDAI": "",
+    "OpenMandate": "",
+    "RescueAdapter": "",
+    "ReactiveMandateHandler": "",
+    "SomniaEvidenceAgent": "",
+    "setAdapter": "",
+    "setReactiveHandler": "",
+    "setAgentRoleEvidenceA": "",
+    "setAgentRoleEvidenceB": "",
+    "setAgentRoleSomniaEvidenceAgent": "",
+    "setAgentRoleStrategyA": "",
+    "setAgentRoleStrategyB": "",
+    "reactivitySubscription": "",
+    "demoMandate": ""
+  },
+  "somnia": {
+    "agentsPlatform": "0x037Bb9C718F3f7fe5eCBDB0b600D607b52706776",
+    "jsonApiAgentId": "13174292974160097713",
+    "reactivity": {
+      "subscriptionId": "",
+      "precompile": "0x0000000000000000000000000000000000000100",
+      "eventTopic": "",
+      "priorityFeePerGas": "2",
+      "maxFeePerGas": "20",
+      "gasLimit": "2000000"
+    },
+    "dataStreams": {
+      "evidenceStream": "",
+      "proposalStream": ""
+    }
+  },
+  "explorer": {
+    "baseUrl": "https://shannon-explorer.somnia.network"
+  }
+}

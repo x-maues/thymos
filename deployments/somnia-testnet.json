@@ -1,0 +1,58 @@
+{
+  "network": "Somnia Testnet",
+  "chainId": 50312,
+  "rpcUrl": "https://dream-rpc.somnia.network/",
+  "status": "deployed",
+  "deployedAt": "2026-06-10T21:18:00.018Z",
+  "deployer": "0xE3f27CFD5fE0873DBF0370F438E4C8A21a12238f",
+  "contracts": {
+    "MockUSDC": "0x7a5b53b202438809625f068b9856839b59bce3b4",
+    "MockDAI": "0x588dbad25cac3d9973c55d1849a852d2697bdbb7",
+    "OpenMandate": "0x68f557460df4c1c0838729eb29d5f025a69f4a88",
+    "RescueAdapter": "0x38b20ff45d5b7f0ea8100e5ef2589b66124414da",
+    "ReactiveMandateHandler": "0x80e9f57d252632d03190c8c9190f5f5a7f5ee535",
+    "SomniaEvidenceAgent": "0xcc77863111782fb34195c83efaf719e67d452c40"
+  },
+  "transactions": {
+    "MockUSDC": "0x9266be70dfac285b8ccb144d0c464045e7342d028c2590181640bba68fbb1594",
+    "MockDAI": "0x5e42a9eeb6ddd665691c2f84ffedc5074249483ff2d48108cdbd4d83b149fc82",
+    "OpenMandate": "0xc86b9af3dc3c384762070f580aee0c5cd7b4c33bda9bebc7060cc8f97a9f85f7",
+    "RescueAdapter": "0x47886a75424d9e37a74a2de23676c9bd4989be250e38148652d5cae61a251ad2",
+    "ReactiveMandateHandler": "0x4439aeb9953ff6f333812aaa994dccf0843fdeda9f0ed78cf9263c5b9376111b",
+    "SomniaEvidenceAgent": "0x172359605ee4d1cd6286dec707bdabc53641d20df76f498811e15a476a16d53d",
+    "setAdapter": "0x5ae103dcb721d315c2901c034064d1e8c58997fce0a330d2f99bf39d833f22e2",
+    "setReactiveHandler": "0x52f65916e1c3ec16b1d0d3ffd1a43bd237fefd07fe0a14286aba67662d60dce0",
+    "setAgentRoleEvidenceA": "0x1b17ba5833a9e1c517945d2412507c7b60fcba97913ce057c4ed874b70e571bc",
+    "setAgentRoleEvidenceB": "0xb2259fb9689b20e59962a73a4b20f19d025dfd1fab7e089d745d179f68eb5c72",
+    "setAgentRoleSomniaEvidenceAgent": "0x85d5bba6e16656e2cb91c013c2c024357201d793b22bb77769ac0cc33458fad6",
+    "setAgentRoleStrategyA": "0x5e0c2d6182097ff197191cf7ed072026bebe9d859965fa9085f4d212d5c1ebba",
+    "setAgentRoleStrategyB": "0x1a941b0d98f424befbd9935adbaf564c6064af5a5020cad596962e6dd5edd8b6",
+    "reactivitySubscription": "0x660202c1696e7a5ad92bd35ae68d03ba42b4b3213f2a00a36cdacb3ce38b9632",
+    "demoMandate": "0xab91d7391a56fda1947904bfcb54d0d5766a89e8c106ac786349e6926522a429"
+  },
+  "somnia": {
+    "agentsPlatform": "0x037Bb9C718F3f7fe5eCBDB0b600D607b52706776",
+    "jsonApiAgentId": "13174292974160097713",
+    "reactivity": {
+      "subscriptionId": "5982722",
+      "precompile": "0x0000000000000000000000000000000000000100",
+      "eventTopic": "0xd9def0e25fce38ea3d5f521d32201565dfa99ae26483a33ae2c0548db70c8713",
+      "priorityFeePerGas": "2",
+      "maxFeePerGas": "20",
+      "gasLimit": "2000000"
+    },
+    "dataStreams": {
+      "evidenceSchema": "uint256 mandateId,address agent,bytes32 sourceId,int256 priceE6,uint64 observedAt,bool valid,bytes32 evidenceHash",
+      "proposalSchema": "uint256 mandateId,address agent,address outputToken,uint256 expectedOutput,uint16 slippageBps,bytes32 routeHash,bool valid",
+      "evidenceSchemaId": "0x358279b5d4994de087ccc5296f0523eed79c31d862a7981bd7befa9ef69a16c8",
+      "proposalSchemaId": "0xaa07aa0da4bf9db7825d4c7652ec734bef35a0b2cba170e15dbdab521102b68e",
+      "evidenceSchemaRegistration": "0x974bac9b9c9a3eb91036aec0e6c2ddbeec69ab67addc8ec5a81d31fcbec683bc",
+      "proposalSchemaRegistration": "0x9aac734f752a04d1727da8014a601f49d382bbdc4a1366078428061c0b50c03f",
+      "evidenceStream": "0x358279b5d4994de087ccc5296f0523eed79c31d862a7981bd7befa9ef69a16c8",
+      "proposalStream": "0xaa07aa0da4bf9db7825d4c7652ec734bef35a0b2cba170e15dbdab521102b68e"
+    }
+  },
+  "explorer": {
+    "baseUrl": "https://shannon-explorer.somnia.network"
+  }
+}
