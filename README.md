@@ -9,8 +9,9 @@ It lets a user define a rescue mandate such as:
 Once the mandate is created, Somnia reactivity, Somnia JSON API agents, and the on-chain mandate contract work together to detect the trigger, gather evidence, choose a compliant route, and execute the rescue with no manual operator in the loop.
 
 ![Thymos Autonomous Dashboard Demo](./img.png)
+![Thymos](./landing.png)
 
-## What It Doess
+## What It Does
 
 - Creates a mandate that escrows input assets and defines trigger, slippage, expiry, and bounty rules.
 - Uses Somnia reactivity to detect the `MandateCreated` event and automatically open evaluation.
@@ -20,7 +21,7 @@ Once the mandate is created, Somnia reactivity, Somnia JSON API agents, and the 
 
 ## How It Works
 
-1. A user deposits USDC into `OpenMandate`.
+1. A user deposits USDC into `Thymos`.
 2. The user creates a mandate with:
    - amount
    - trigger price
@@ -31,14 +32,13 @@ Once the mandate is created, Somnia reactivity, Somnia JSON API agents, and the 
 4. Evidence agents submit fresh price observations.
 5. The mandate requires a quorum of confirming evidence before proposals are accepted.
 6. Strategy agents submit route metadata, not arbitrary calldata.
-7. `OpenMandate` enforces the policy, executes the rescue through `RescueAdapter`, and pays the bounty after success.
+7. `Thymos` enforces the policy, executes the rescue through `RescueAdapter`, and pays the bounty after success.
 
 ## Architecture
 
 ### On-chain contracts
 
-- `OpenMandate.sol`
-  - Core protocol contract
+- `OpenMandate.sol` — The Thymos core contract
   - Escrows funds
   - Tracks mandate state
   - Validates evidence and proposals
@@ -51,7 +51,7 @@ Once the mandate is created, Somnia reactivity, Somnia JSON API agents, and the 
 - `SomniaEvidenceAgent.sol`
   - Wrapper around Somnia JSON API agents
   - Requests live market data
-  - Submits evidence back to `OpenMandate`
+  - Submits evidence back to `Thymos`
 - `RescueAdapter.sol`
   - Allowlisted execution adapter
   - Enforces the swap path used by the rescue
@@ -81,11 +81,11 @@ Thymos is designed around Somnia-native primitives, not generic EVM polling.
 
 - Somnia reactivity
   - The demo registers a subscription against the reactivity precompile at `0x0000000000000000000000000000000000000100`.
-  - The subscription targets the `MandateCreated` event from `OpenMandate`.
+  - The subscription targets the `MandateCreated` event from `Thymos`.
   - When the event fires, Somnia invokes `ReactiveMandateHandler`, which immediately calls `startEvaluation`.
 - Somnia JSON API agents
   - `SomniaEvidenceAgent` requests external price data through Somnia's agent platform.
-  - The response is decoded into a price observation and submitted to `OpenMandate`.
+  - The response is decoded into a price observation and submitted to `Thymos`.
   - This is how the protocol turns off-chain market data into on-chain evidence.
 - Somnia Data Streams
   - Evidence and proposal records are published with `@somnia-chain/streams`.
@@ -204,8 +204,8 @@ The landing page includes a mandate studio. It saves your draft locally and the 
 
 - It checks that the connected chain is Somnia Testnet `50312`.
 - It loads the compiled contract artifacts from `out/`.
-- It deploys `MockToken`, `OpenMandate`, `RescueAdapter`, `ReactiveMandateHandler`, and `SomniaEvidenceAgent`.
-- It sets the adapter and agent roles inside `OpenMandate`.
+- It deploys `MockToken`, `Thymos`, `RescueAdapter`, `ReactiveMandateHandler`, and `SomniaEvidenceAgent`.
+- It sets the adapter and agent roles inside `Thymos`.
 - It registers the evidence and proposal schemas with Somnia Data Streams.
 - It creates the reactivity subscription against the Somnia precompile.
 - It writes all addresses and transaction hashes into `deployments/somnia-testnet.json`.

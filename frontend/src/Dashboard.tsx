@@ -433,7 +433,7 @@ export default function Dashboard() {
               <span className="block font-mono text-[10px] font-bold tracking-[0.2em] uppercase text-zinc-500 mb-6 border-b border-white/10 pb-4">{state.proofLabel ?? "Deployment Proof"}</span>
               <div className="space-y-4 font-mono text-xs uppercase tracking-widest">
                 {[
-                  ["Thymos", state.contracts.Thymos],
+                  ["Thymos Core", state.contracts.OpenMandate],
                   ["React Handler", state.contracts.ReactiveHandler],
                   ["Evidence Agent", state.contracts.SomniaEvidenceAgent],
                   ["Rescue Adapter", state.contracts.RescueAdapter],

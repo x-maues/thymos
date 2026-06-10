@@ -1,1 +1,1 @@
-{"label":"Guarded USDC Sweep","amount":"100","triggerPrice":"0.985","maxSlippageBps":"50","bounty":"0.05","expiryMinutes":"60","outputAsset":"mDAI","notes":"Best for testing the default hackathon path."}
+{"label":"Guarded USDC Sweep","amount":"100","triggerPrice":"0.985","maxSlippageBps":"50","bounty":"0.05","expiryMinutes":"60","outputAsset":"mDAI","notes":"Conservative mandate — ideal for testing the default rescue path with minimal risk."}

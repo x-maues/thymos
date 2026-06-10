@@ -26,7 +26,7 @@ const sampleMandates: Array<{ id: string; title: string; description: string; dr
       bounty: "0.05",
       expiryMinutes: "60",
       outputAsset: "mDAI",
-      notes: "Best for testing the default hackathon path."
+      notes: "Conservative mandate — ideal for testing the default rescue path with minimal risk."
     }
   },
   {
@@ -1020,8 +1020,8 @@ export default function Landing() {
           <div className="om-section-header om-fade">
             <h2 className="om-section-title">End-to-End Automation,<br />No Human Bottlenecks</h2>
             <p className="om-section-desc">
-              Thymos orchestrates the entire lifecycle of treasury defense. 
-              From the moment a depeg is detected to the final settlement and bounty payout, 
+              Thymos orchestrates the entire lifecycle of treasury defense.
+              From the moment a depeg is detected to the final settlement and bounty payout,
               the protocol operates entirely autonomously on-chain.
             </p>
           </div>

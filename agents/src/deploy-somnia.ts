@@ -300,7 +300,7 @@ async function main() {
     if (evidenceExists instanceof Error) throw evidenceExists;
     if (!evidenceExists) {
       const tx = await streams.streams.registerDataSchemas([
-        { schemaName: "openmandate-evidence-v1", schema: evidenceSchema, parentSchemaId: zeroSchemaParent }
+        { schemaName: "thymos-evidence-v1", schema: evidenceSchema, parentSchemaId: zeroSchemaParent }
       ]);
       if (tx instanceof Error) throw tx;
       await publicClient.waitForTransactionReceipt({ hash: tx });
@@ -311,7 +311,7 @@ async function main() {
     if (proposalExists instanceof Error) throw proposalExists;
     if (!proposalExists) {
       const tx = await streams.streams.registerDataSchemas([
-        { schemaName: "openmandate-proposal-v1", schema: proposalSchema, parentSchemaId: zeroSchemaParent }
+        { schemaName: "thymos-proposal-v1", schema: proposalSchema, parentSchemaId: zeroSchemaParent }
       ]);
       if (tx instanceof Error) throw tx;
       await publicClient.waitForTransactionReceipt({ hash: tx });
