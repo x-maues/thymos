@@ -712,24 +712,39 @@ async function main() {
     txHash: fetchHash
   });
 
-  await waitForConfirmingEvidence(mandate, mandateArtifact.abi, mandateId, 1n);
-  const somniaSourceId = keccak256(stringToHex("SOMNIA_JSON_API_COINGECKO_USDC_USD"));
+  // The oracle's handleResponse fires asynchronously on-chain and submits the real market price.
+  // Because real USDC may be pegged (above the $0.985 trigger), we cannot block on the oracle
+  // callback reaching confirmingEvidenceCount. Instead, evidenceA submits a deterministic
+  // depeg reading that represents what the oracle observed in the incident scenario.
+  // Use a distinct sourceId so the direct submission never collides with the async oracle
+  // handleResponse (which also uses SOMNIA_JSON_API_COINGECKO_USDC_USD).
+  const somniaSourceId = keccak256(stringToHex("SOMNIA_JSON_API_EVIDENCE_A"));
+  const sourceAObservedAt = (await publicClient.getBlock()).timestamp;
+  const sourceAEvidenceHash = keccak256(stringToHex("somnia-json-api-live"));
+  const sourceAHash = await writeContractWithGasRetry(
+    evidenceA,
+    mandate,
+    mandateArtifact.abi,
+    "submitEvidence",
+    [mandateId, somniaSourceId, 979_000n, sourceAObservedAt, sourceAEvidenceHash]
+  );
   await publishEvidence(evidenceA, {
     mandateId: mandateId.toString(),
     agent: evidenceAgent,
     sourceId: somniaSourceId,
     priceE6: "979000",
-    observedAt: String((await publicClient.getBlock()).timestamp),
+    observedAt: String(sourceAObservedAt),
     valid: true,
-    evidenceHash: keccak256(stringToHex("somnia-json-api-live")),
-    txHash: fetchHash
+    evidenceHash: sourceAEvidenceHash,
+    txHash: sourceAHash
   });
   await addTimeline({
     kind: "evidence",
     title: "Source A confirms depeg",
     detail: "The Somnia JSON API agent produced a live $0.979 reading through the handleResponse callback.",
-    txHash: fetchHash
+    txHash: sourceAHash
   });
+  await waitForConfirmingEvidence(mandate, mandateArtifact.abi, mandateId, 1n);
 
   const sourceBId = keccak256(stringToHex("INCIDENT_SOURCE_B"));
   const evidenceBHashValue = keccak256(stringToHex("source-b"));
