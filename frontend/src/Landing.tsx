@@ -13,11 +13,11 @@ type MandateDraft = {
 };
 
 const draftStorageKey = "thymos.mandateDraft";
-  const sampleMandates: Array<{ id: string; title: string; description: string; draft: MandateDraft }> = [
+const sampleMandates: Array<{ id: string; title: string; description: string; draft: MandateDraft }> = [
   {
     id: "guarded-usdc",
     title: "Guarded USDC Sweep",
-    description: "Small mandate rescue with a fast trigger and conservative execution limits.",
+    description: "Small treasury rescue with a fast trigger and conservative execution limits.",
     draft: {
       label: "Guarded USDC Sweep",
       amount: "100",
@@ -32,7 +32,7 @@ const draftStorageKey = "thymos.mandateDraft";
   {
     id: "rapid-response",
     title: "Rapid Response Reserve",
-    description: "Higher-value mandate with a tighter trigger and more aggressive bounty.",
+    description: "Higher-value mandate with tighter trigger and more aggressive bounty.",
     draft: {
       label: "Rapid Response Reserve",
       amount: "250",
@@ -95,16 +95,8 @@ export default function Landing() {
     if (sample) setDraft(sample.draft);
   }
 
-  async function launchDraft() {
+  function launchDraft() {
     window.localStorage.setItem(draftStorageKey, JSON.stringify(draft));
-    try {
-      await fetch('/api/run-demo', {
-        method: 'POST',
-        body: JSON.stringify(draft)
-      });
-    } catch (e) {
-      console.error("Failed to launch demo", e);
-    }
     navigate("/dashboard");
   }
 
@@ -807,9 +799,8 @@ export default function Landing() {
             Autonomous Agents.
           </h1>
           <p className="om-sub om-fade">
-            Thymos is the permissionless labor market for autonomous agents.
-            Its first use case is autonomous treasury defense: post an outcome,
-            let agents compete, and settle only on verified execution.
+            Post an outcome. Agents compete to solve it. Pay only on verified
+            execution — deterministic settlement on Somnia's L1.
           </p>
           <div className="om-actions om-fade">
             <button className="om-btn-primary">
@@ -947,7 +938,7 @@ export default function Landing() {
 
               <div className="om-builder-actions">
                 <button type="button" className="om-btn-primary" onClick={launchDraft}>
-                  Launch Dashboard
+                  Save Draft
                   <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="2">
                     <path d="M2 7h10M8 3l4 4-4 4" />
                   </svg>
@@ -956,6 +947,10 @@ export default function Landing() {
                   Open Live Trace
                 </Link>
               </div>
+              <p className="om-builder-copy" style={{ marginTop: "16px", marginBottom: 0 }}>
+                The live on-chain demo still runs from the terminal with <code>npm run demo:once</code>.
+                Saving a draft updates the dashboard preview and keeps the selected mandate ready for the next run.
+              </p>
             </div>
 
             <div className="om-builder-panel om-fade" style={{ transitionDelay: "0.08s" }}>
@@ -1025,9 +1020,9 @@ export default function Landing() {
           <div className="om-section-header om-fade">
             <h2 className="om-section-title">End-to-End Automation,<br />No Human Bottlenecks</h2>
             <p className="om-section-desc">
-              Thymos orchestrates the full mandate lifecycle. Treasury defense is the first
-              use case, but the protocol is designed as a broader labor market for autonomous
-              agents on Somnia.
+              Thymos orchestrates the entire lifecycle of treasury defense. 
+              From the moment a depeg is detected to the final settlement and bounty payout, 
+              the protocol operates entirely autonomously on-chain.
             </p>
           </div>
           <div className="om-journey-grid">

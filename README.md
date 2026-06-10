@@ -8,7 +8,9 @@ It lets a user define a rescue mandate such as:
 
 Once the mandate is created, Somnia reactivity, Somnia JSON API agents, and the on-chain mandate contract work together to detect the trigger, gather evidence, choose a compliant route, and execute the rescue with no manual operator in the loop.
 
-## What It Does
+![Thymos Autonomous Dashboard Demo](./img.png)
+
+## What It Doess
 
 - Creates a mandate that escrows input assets and defines trigger, slippage, expiry, and bounty rules.
 - Uses Somnia reactivity to detect the `MandateCreated` event and automatically open evaluation.

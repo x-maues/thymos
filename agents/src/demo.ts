@@ -204,8 +204,14 @@ function asErrorMessage(result: unknown) {
   return result instanceof Error ? result.message : String(result);
 }
 
-async function nextNonce(address: Address) {
-  return publicClient.getTransactionCount({ address, blockTag: "pending" });
+const localNonce = new Map<Address, number>();
+
+async function nextNonce(address: Address): Promise<number> {
+  const chainNonce = await publicClient.getTransactionCount({ address, blockTag: "pending" });
+  const tracked = localNonce.get(address) ?? 0;
+  const nonce = Math.max(chainNonce, tracked);
+  localNonce.set(address, nonce + 1);
+  return nonce;
 }
 
 function streamSdk(account: PrivateKeyAccount) {
