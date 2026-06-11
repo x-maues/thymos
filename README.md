@@ -8,7 +8,6 @@ It lets a user define a rescue mandate such as:
 
 Once the mandate is created, Somnia reactivity, Somnia JSON API agents, and the on-chain mandate contract work together to detect the trigger, gather evidence, choose a compliant route, and execute the rescue with no manual operator in the loop.
 
-![Thymos Autonomous Dashboard Demo](./img.png)
 ![Thymos](./landing.png)
 
 ## What It Does
@@ -18,6 +17,8 @@ Once the mandate is created, Somnia reactivity, Somnia JSON API agents, and the 
 - Collects market evidence through Somnia JSON API agents and records it on-chain.
 - Lets strategy agents submit rescue proposals, then selects and executes the best compliant route.
 - Publishes evidence and proposal records to Somnia Data Streams for a permanent audit trail.
+
+![Thymos Autonomous Dashboard Demo](./exec.png)
 
 ## How It Works
 
@@ -76,6 +77,8 @@ Once the mandate is created, Somnia reactivity, Somnia JSON API agents, and the 
   - Timeline and proof links for the current run
 
 ## Somnia Integration
+
+![Data Streams](./data.png)
 
 Thymos is designed around Somnia-native primitives, not generic EVM polling.
 

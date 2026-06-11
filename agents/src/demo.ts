@@ -325,7 +325,6 @@ async function writeContract(
     functionName,
     args,
     value,
-    nonce: await nextNonce(signer.address)
   });
   const receipt = await publicClient.waitForTransactionReceipt({ hash });
   if (receipt.status !== "success") throw new Error(`${functionName} reverted`);
