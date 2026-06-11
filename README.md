@@ -18,7 +18,7 @@ Once the mandate is created, Somnia reactivity, Somnia JSON API agents, and the 
 - Lets strategy agents submit rescue proposals, then selects and executes the best compliant route.
 - Publishes evidence and proposal records to Somnia Data Streams for a permanent audit trail.
 
-![Thymos Autonomous Dashboard Demo](./exec.png)
+![Thymos Mandate](./mandate.png)
 
 ## How It Works
 
@@ -35,6 +35,7 @@ Once the mandate is created, Somnia reactivity, Somnia JSON API agents, and the 
 6. Strategy agents submit route metadata, not arbitrary calldata.
 7. `Thymos` enforces the policy, executes the rescue through `RescueAdapter`, and pays the bounty after success.
 
+![Thymos Autonomous Dashboard Demo](./exec.png) 
 ## Architecture
 
 ### On-chain contracts
