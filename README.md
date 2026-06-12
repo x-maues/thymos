@@ -10,6 +10,8 @@ Once the mandate is created, Somnia reactivity, Somnia JSON API agents, and the 
 
 ![Thymos](./landing.png)
 
+Demo Video - https://www.loom.com/share/2f73045a8217424aaf90476a198942a8?utm_medium=gif
+
 ## What It Does
 
 - Creates a mandate that escrows input assets and defines trigger, slippage, expiry, and bounty rules.
