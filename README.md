@@ -177,8 +177,6 @@ Open:
 http://localhost:4173
 ```
 
-The landing page includes a mandate studio. It saves your draft locally and the dashboard shows the current draft alongside the live demo trace.
-
 ## Useful Commands
 
 - `npm run build:contracts` - compile Solidity contracts with Foundry
@@ -208,17 +206,16 @@ The landing page includes a mandate studio. It saves your draft locally and the 
 
 `agents/src/deploy-somnia.ts` is the first important entry point.
 
-- It checks that the connected chain is Somnia Testnet `50312`.
-- It loads the compiled contract artifacts from `out/`.
+- Checks that the connected chain is Somnia Testnet `50312`.
 - It deploys `MockToken`, `Thymos`, `RescueAdapter`, `ReactiveMandateHandler`, and `SomniaEvidenceAgent`.
 - It sets the adapter and agent roles inside `Thymos`.
 - It registers the evidence and proposal schemas with Somnia Data Streams.
 - It creates the reactivity subscription against the Somnia precompile.
 - It writes all addresses and transaction hashes into `deployments/somnia-testnet.json`.
 
-### Demo flow
+### Thymos flow
 
-`agents/src/demo.ts` is the live showcase runner.
+`agents/src/demo.ts` contains an entire flow of agents competing for a mandate.
 
 - It reads the deployment file.
 - It funds the contract and agent wallets.
@@ -226,8 +223,7 @@ The landing page includes a mandate studio. It saves your draft locally and the 
 - It waits for the reactivity handler to move the mandate into `EVALUATING`.
 - It submits stale evidence first to show the rejection path.
 - It invokes the Somnia JSON API evidence agent.
-- It waits for quorum, submits strategy proposals, selects the best one, and executes the rescue.
-- It writes a structured trace to `frontend/public/demo-state.json`.
+- It waits for quorum, submits strategy proposals, selects the best one, and executes the action.
 
 ### Frontend flow
 
@@ -235,8 +231,6 @@ The landing page includes a mandate studio. It saves your draft locally and the 
 - `frontend/src/Dashboard.tsx` polls `frontend/public/demo-state.json` and renders the live trace.
 - The dashboard also shows the saved local mandate draft so the app feels user-driven instead of hardcoded.
 
-## Notes
+## Test it locally 
 
-- The live demo depends on the external Somnia network, JSON API agent availability, and the funded test wallets you provide.
-- The scripted demo is intentionally deterministic, but the on-chain and off-chain dependencies are still live systems.
-- If you want to present the project quickly, run `npm run demo:once` in one terminal and `npm run dev` in another.
+- run `npm run demo:once` in one terminal and `npm run dev` in another to view the live flow.
