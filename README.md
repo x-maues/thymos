@@ -177,6 +177,21 @@ Open:
 http://localhost:4173
 ```
 
+## Deployed Contracts (Somnia Testnet)
+
+All contracts are deployed on Somnia Testnet (Chain ID: `50312`).
+
+| Contract | Address | Explorer Link |
+|----------|---------|---------------|
+| **OpenMandate** (Core Protocol) | `0x68f557460df4c1c0838729eb29d5f025a69f4a88` | [View](https://shannon-explorer.somnia.network/address/0x68f557460df4c1c0838729eb29d5f025a69f4a88) |
+| **RescueAdapter** | `0x38b20ff45d5b7f0ea8100e5ef2589b66124414da` | [View](https://shannon-explorer.somnia.network/address/0x38b20ff45d5b7f0ea8100e5ef2589b66124414da) |
+| **ReactiveMandateHandler** | `0x80e9f57d252632d03190c8c9190f5f5a7f5ee535` | [View](https://shannon.somnia.network/address/0x80e9f57d252632d03190c8c9190f5f5a7f5ee535) |
+| **SomniaEvidenceAgent** | `0xcc77863111782fb34195c83efaf719e67d452c40` | [View](https://shannon-explorer.somnia.network/address/0xcc77863111782fb34195c83efaf719e67d452c40) |
+| **MockUSDC** (Test Token) | `0x7a5b53b202438809625f068b9856839b59bce3b4` | [View](https://shannon-explorer.somnia.network/address/0x7a5b53b202438809625f068b9856839b59bce3b4) |
+
+**Last Deployment**: June 10, 2026 at 21:18:00 UTC  
+
+
 ## Useful Commands
 
 - `npm run build:contracts` - compile Solidity contracts with Foundry
